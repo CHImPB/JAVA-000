@@ -24,7 +24,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 - 2 安装choco后运行`choco install superbenchmarker`出现下面错误
 
-  ![image-20201024120052243](https://github.com/CHImPB/JAVA-000/blob/main/Week_02/doc_img/image-20201024120052243.png)
+  ![image-20201024120052243](doc_img/image-20201024120052243.png)
 
 - 3 报读后执行`iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex`，出现下面错误
 
