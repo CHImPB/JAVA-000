@@ -28,25 +28,25 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 - 3 报读后执行`iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex`，出现下面错误
 
-  ![image-20201024120737674](https://github.com/CHImPB/JAVA-000/blob/main/Week_02/doc_img/image-20201024120737674.png)
+  ![image-20201024120737674](doc_img/image-20201024120737674.png)
 
 - 4 设置系统环境变量chocolateyUseWindowsCompression = 'true'，
 
-  ![image-20201024120952221](https://github.com/CHImPB/JAVA-000/blob/main/Week_02/doc_img/image-20201024120952221.png)
+  ![image-20201024120952221](doc_img/image-20201024120952221.png)
 
   
 
 - 5 再次执行`iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex` 安装成功
 
-  ![image-20201024122325187](https://github.com/CHImPB/JAVA-000/blob/main/Week_02/doc_img/image-20201024122325187.png)
+  ![image-20201024122325187](doc_img/image-20201024122325187.png)
 
 - 执行`choco install superbenchmarker`出现下面的错误
 
-  ![image-20201024122431532](https://github.com/CHImPB/JAVA-000/blob/main/Week_02/doc_img/image-20201024122431532.png)
+  ![image-20201024122431532](doc_img/image-20201024122431532.png)
 
 - 最后翻墙解决安装问题
 
-  ![image-20201024124852044](https://github.com/CHImPB/JAVA-000/blob/main/Week_02/doc_img/image-20201024124852044.png)
+  ![image-20201024124852044](doc_img/image-20201024124852044.png)
 
 ## Mac
 
@@ -131,7 +131,7 @@ public class GCLogAnalysis {
 
   出现下面的错误，用npp确认文件编码格式是否是utf-8,如果不是转换编码格式后继续编译：
 
-   ![image-20201024121656847](https://github.com/CHImPB/JAVA-000/blob/main/Week_02/doc_img/image-20201024121656847.png)
+   ![image-20201024121656847](doc_img/image-20201024121656847.png)
 
   编码格式
 
