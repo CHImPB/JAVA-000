@@ -131,7 +131,7 @@ public class GCLogAnalysis {
 
   出现下面的错误，用npp确认文件编码格式是否是utf-8,如果不是转换编码格式后继续编译：
 
-   ![image-20201024121656847](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201024121656847.png)
+   ![image-20201024121656847](https://github.com/CHImPB/JAVA-000/blob/main/Week_02/doc_img/image-20201024121656847.png)
 
   编码格式
 
