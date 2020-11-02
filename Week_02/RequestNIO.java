@@ -25,3 +25,4 @@ public class RequestNIO {
         }
     }
 }
+            fullRequest.headers().add("nio","张洪雨");

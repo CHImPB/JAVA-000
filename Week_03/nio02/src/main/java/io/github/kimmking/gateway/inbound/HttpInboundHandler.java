@@ -36,6 +36,7 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
 //            if (uri.contains("/test")) {
 //                handlerTest(fullRequest, ctx);
 //            }
+            fullRequest.headers().add("nio","张洪雨");
             handler.handle(fullRequest, ctx);
     
         } catch(Exception e) {
