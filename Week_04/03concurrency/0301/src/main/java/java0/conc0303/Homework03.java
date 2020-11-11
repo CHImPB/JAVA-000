@@ -23,7 +23,7 @@ public class Homework03 {
         int result = CompletableFuture.supplyAsync(()->{return  sum();}).join();
         // 确保  拿到result 并输出
         System.out.println("异步计算结果为："+result);
-        System.out.println("使用时间："+ (System.currentTimeMillis()-start) + " ms");
+        System.out.println("使用时间："+ (System.currentTimeMillis()-start) + " ms"); 
         //
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(16);
         try
