@@ -15,7 +15,7 @@ public class Counter {
     }
     
     public static void main(String[] args) throws InterruptedException {
-        int loop = 100000;
+        int loop = 100000000;
         
         // test single thread
         Counter counter = new Counter();

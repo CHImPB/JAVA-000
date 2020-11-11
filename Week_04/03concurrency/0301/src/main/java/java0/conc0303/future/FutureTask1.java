@@ -22,7 +22,7 @@ public class FutureTask1 {
 //            }
 //        });
 //        executor.submit(task);
-        
+        System.out.println("我是主线程其它内容======");
         try {
             System.out.println("result: " + task.get());
         } catch (InterruptedException e) {

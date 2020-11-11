@@ -30,11 +30,13 @@ public class Thread2 {
     public static void main(String[] args) {
         final Thread2 myt2 = new Thread2();
         Thread t1 = new Thread(new Runnable() {
+            @Override
             public void run() {
                 myt2.m4t1();
             }
         }, "t1");
         Thread t2 = new Thread(new Runnable() {
+            @Override
             public void run() {
                 myt2.m4t2();
             }
