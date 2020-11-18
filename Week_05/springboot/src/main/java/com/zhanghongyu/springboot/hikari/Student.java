@@ -1,4 +1,4 @@
-package com.zhanghongyu.springboot.jdbc;
+package com.zhanghongyu.springboot.hikari;
 
 import lombok.Data;
 

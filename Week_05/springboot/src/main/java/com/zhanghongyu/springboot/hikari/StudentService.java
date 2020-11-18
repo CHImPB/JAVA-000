@@ -1,4 +1,4 @@
-package com.zhanghongyu.springboot.jdbc;
+package com.zhanghongyu.springboot.hikari;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

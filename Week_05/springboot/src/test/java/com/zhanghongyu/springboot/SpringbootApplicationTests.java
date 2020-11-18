@@ -1,13 +1,14 @@
-package com.zhanghongyu.homework10;
+package com.zhanghongyu.springboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Homework10ApplicationTests {
+class SpringbootApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+
+	}
 
 }
