@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+						http://www.springframework.org/schema/aop
+						https://www.springframework.org/schema/aop/spring-aop.xsd">
+<!--                    beans 中配置default-autowire使所有bean 使用byName自动装载-->
+<!--                    default-autowire="byName">-->
+    <!-- 使用设值注入方式装配KlassA实例 -->
+    <bean id="klassA1" class="com.zhanghongyu.xml.KlassA">
+        <property name="name" value="hongyu1" />
+        <property name="age" value="31" />
+    </bean>
+    <!-- 使用构造方法装配KlassA实例 -->
+    <bean id="klassA2" class="com.zhanghongyu.xml.KlassA">
+        <constructor-arg index="0" value="hongyu2"/>
+        <constructor-arg index="1" value="32"/>
+    </bean>
+    <context:component-scan base-package="com.zhanghongyu.annotation"/>
+<!--    直接使用用Autowired-->
+<!--    <bean id="klassC1" class="com.zhanghongyu.autowire.KlassC"/>-->
+
+    <!--autowire 之 byName-->
+    <bean id="klassC1" class="com.zhanghongyu.autowire.KlassC" autowire="byName"/>
+    <!--autowire 之 byType-->
+    <!--<bean id="klassC1" class="com.zhanghongyu.autowire.KlassC" autowire="byType"/>-->
+    <!-- constructor 根据构造方法的参数的数据类型，进行 byType 模式的自动装配-->
+    <!--<bean id="klassC1" class="com.zhanghongyu.autowire.KlassC" autowire="constructor"/>-->
+    <bean id="attributeA" class="com.zhanghongyu.autowire.AttributeA"/>
+<!--    测试byType用-->
+<!--    <bean id="attributeA1" class="com.zhanghongyu.autowire.AttributeA"/>-->
+<!--    测试constructor用-->
+<!--    <bean id="attributeB" class="com.zhanghongyu.autowire.AttributeB"/>-->
+
+<!--    autodetect 如果发现默认的构造方法，则用 constructor 模式，否则用 byType 模式。-->
+<!--    no 默认情况下，不使用自动装配，Bean 依赖必须通过 ref 元素定义。-->
+    <context:component-scan base-package="com.zhanghongyu.autowire"/>
+
+    <bean id="student123"
+          class="com.zhanghongyu.school.Student">
+        <property name="id" value="123" />
+        <property name="name" value="KK123" />
+    </bean>
+
+    <bean id="student100"
+          class="com.zhanghongyu.school.Student">
+        <property name="id" value="100" />
+        <property name="name" value="KK100" />
+    </bean>
+
+    <bean id="class1" class="com.zhanghongyu.school.Klass">
+        <property name="students">
+            <list>
+                <ref bean="student100" />
+                <ref bean="student123" />
+                <bean class="com.zhanghongyu.school.Student">
+                    <property name="name" value="qq" />
+                    <property name="id" value="001" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <bean id="school" class="com.zhanghongyu.school.School"></bean>
+</beans>
