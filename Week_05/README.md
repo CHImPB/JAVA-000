@@ -5,13 +5,17 @@
 1、(选做)使Java里的动态代理，实现一个简单的AOP。
 
 2、(**必做**)写代码实现Spring Bean的装配，方式越多越好（XML、Annotation都可以），提交到Github。
+
 XML方式 https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springhomework5/src/test/java/com/zhanghongyu/XmlBeanTest.java
+
 Annotion https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springhomework5/src/test/java/com/zhanghongyu/AnnotationBeanTest.java
+
 Autowire
   1) 直接使用@Autowired注解
   2）Autowire byName
   3) Autowire byType
   4) Autowire constructor
+  
   https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springhomework5/src/test/java/com/zhanghongyu/AutowireBeanTest.java
 
 3、(选座)实现一个Spring XML自定义配置，配置一组Bean，例如Student/Klass/School。
@@ -32,16 +36,25 @@ AOP；
 
 3. （**必做**）给前面课程提供的Student/Klass/School 实现自动配置和Starter。
 
+https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springhomework5/src/test/java/com/zhanghongyu/SchoolBeanTest.java
+
+https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springboot/src/main/java/com/zhanghongyu/springboot/starter
+
 4. （选做）总结Hibernate 与MyBatis 的各方面异同点。
 
 5. （选做）学习MyBatis-generator 的用法和原理，学会自定义TypeHandler 处理复杂类型。
 
 6. （**必做**）研究一下JDBC 接口和数据库连接池，掌握它们的设计和用法：
   1）使用JDBC 原生接口，实现数据库的增删改查操作。
+  
   https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springboot/src/test/java/com/zhanghongyu/springboot/SpringbootApplicationTests.java
+  
   2）使用事务，PrepareStatement 方式，批处理方式，改进上述操作。
+  
   https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springboot/src/test/java/com/zhanghongyu/springboot/SpringbootApplicationTests.java
+  
   3）配置Hikari 连接池，改进上述操作。提交代码到Github。
+  
   https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springboot/src/main/java/com/zhanghongyu/springboot/hikari/StudentController.java
   
   附加题（可以后面上完数据库的课再考虑做）：
