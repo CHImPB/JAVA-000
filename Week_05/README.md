@@ -38,10 +38,12 @@ AOP；
 
 6. （**必做**）研究一下JDBC 接口和数据库连接池，掌握它们的设计和用法：
   1）使用JDBC 原生接口，实现数据库的增删改查操作。
-  
+  https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springboot/src/test/java/com/zhanghongyu/springboot/SpringbootApplicationTests.java
   2）使用事务，PrepareStatement 方式，批处理方式，改进上述操作。
+  https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springboot/src/test/java/com/zhanghongyu/springboot/SpringbootApplicationTests.java
   3）配置Hikari 连接池，改进上述操作。提交代码到Github。
-
+  https://github.com/CHImPB/JAVA-000/tree/main/Week_05/springboot/src/main/java/com/zhanghongyu/springboot/hikari/StudentController.java
+  
   附加题（可以后面上完数据库的课再考虑做）：
 
 7. (挑战)基于AOP 和自定义注解，实现@MyCache(60) 对于指定方法返回值缓存60秒。
