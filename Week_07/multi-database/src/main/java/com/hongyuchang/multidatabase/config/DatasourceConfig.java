@@ -5,9 +5,13 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
+/**
+ * @author Administrator
+ */
 @Configuration
 @PropertySource("classpath:config/jdbc.properties")
 public class DatasourceConfig {
@@ -17,9 +21,19 @@ public class DatasourceConfig {
         return DataSourceBuilder.create().build();
     }
 
+    @Bean("masterJdbcTemplate")
+    public JdbcTemplate masterJdbcTemplate() {
+        return new JdbcTemplate(masterDataSource());
+    }
+
     @Bean("slave")
     @ConfigurationProperties(prefix = "spring.datasource.slave")
     public DataSource slaveDataSource(){
         return DataSourceBuilder.create().build();
+    }
+
+    @Bean("slaveJdbcTemplate")
+    public JdbcTemplate slaveJdbcTemplate() {
+        return new JdbcTemplate(slaveDataSource());
     }
 }
