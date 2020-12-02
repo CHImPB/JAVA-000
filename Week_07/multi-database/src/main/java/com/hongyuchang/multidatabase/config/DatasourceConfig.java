@@ -1,5 +1,6 @@
 package com.hongyuchang.multidatabase.config;
 
+import com.hongyuchang.multidatabase.constant.DataSourceConstant;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Administrator
@@ -35,5 +38,13 @@ public class DatasourceConfig {
     @Bean("slaveJdbcTemplate")
     public JdbcTemplate slaveJdbcTemplate() {
         return new JdbcTemplate(slaveDataSource());
+    }
+
+    @Bean
+    public RoutingDataSourceConfig getRoutingDataSourceConfig(){
+        Map<Object, Object> targetDataSources = new HashMap<>(5);
+        targetDataSources.put(DataSourceConstant.MASTER, masterDataSource());
+        targetDataSources.put(DataSourceConstant.SLAVE, slaveDataSource());
+        return new RoutingDataSourceConfig(slaveDataSource(), targetDataSources);
     }
 }

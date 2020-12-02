@@ -34,12 +34,10 @@ public class RoutingAspect {
 
     private String loadBalance(){
         Random random = new Random();
-        final int i = random.nextInt(2) + 1;
+        final int i = random.nextInt(1) + 1;
         switch (i){
             case 1:
                 return DataSourceConstant.SLAVE;
-            case 2:
-                return DataSourceConstant.SLAVE2;
         }
         return DataSourceConstant.SLAVE;
     }
