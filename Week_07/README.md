@@ -20,3 +20,5 @@
 JAVA-000/Week_07/multi-database/
 
 3、（必做）读写分离-数据库框架版本2.0 
+
+JAVA-000/Week_07/sharding-sphere/
