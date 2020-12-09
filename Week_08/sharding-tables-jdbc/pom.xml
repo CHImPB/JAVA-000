@@ -50,6 +50,11 @@
 			<artifactId>shardingsphere-jdbc-core</artifactId>
 			<version>5.0.0-alpha</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.shardingsphere</groupId>
+			<artifactId>shardingsphere-transaction-xa-core</artifactId>
+			<version>5.0.0-alpha</version>
+		</dependency>
 	</dependencies>
 
 	<build>

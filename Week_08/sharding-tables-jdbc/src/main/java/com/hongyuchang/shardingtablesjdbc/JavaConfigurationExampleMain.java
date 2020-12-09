@@ -35,7 +35,7 @@ public final class JavaConfigurationExampleMain {
         try {
             //测试分库分表
             orderService.initEnvironment();
-            orderService.processSuccess();
+//            orderService.processSuccess();
             //测试XA事物
             orderService.insertDataXA();
         } catch (Exception e) {
