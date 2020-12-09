@@ -19,6 +19,8 @@ package com.hongyuchang.shardingtablesjdbc.repository;
 
 
 import com.hongyuchang.shardingtablesjdbc.entity.Order;
+import org.apache.shardingsphere.transaction.core.TransactionType;
+import org.apache.shardingsphere.transaction.core.TransactionTypeHolder;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -63,8 +65,10 @@ public class OrderRepository{
 
     public Long insert(final Order order) throws SQLException {
         String sql = "INSERT INTO t_order (user_id, address_id, status) VALUES (?, ?, ?)";
+        TransactionTypeHolder.set(TransactionType.XA);
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            connection.setAutoCommit(false);
             preparedStatement.setInt(1, order.getUserId());
             preparedStatement.setLong(2, order.getAddressId());
             preparedStatement.setString(3, order.getStatus());
@@ -74,6 +78,33 @@ public class OrderRepository{
                     order.setOrderId(resultSet.getLong(1));
                 }
             }
+            connection.commit();
+        }
+        finally {
+            TransactionTypeHolder.clear();
+        }
+        return order.getOrderId();
+    }
+
+    public Long insertFaild(final Order order) throws SQLException {
+        String sql = "INSERT INTO t_order (user_id, address_id, status) VALUES (?, ?, ?)";
+        TransactionTypeHolder.set(TransactionType.XA);
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            connection.setAutoCommit(false);
+            preparedStatement.setInt(1, order.getUserId());
+            preparedStatement.setLong(2, order.getAddressId());
+            preparedStatement.setString(3, order.getStatus());
+            preparedStatement.executeUpdate();
+            try (ResultSet resultSet = preparedStatement.getGeneratedKeys()) {
+                if (resultSet.next()) {
+                    order.setOrderId(resultSet.getLong(1));
+                }
+            }
+            connection.rollback();
+        }
+        finally {
+            TransactionTypeHolder.clear();
         }
         return order.getOrderId();
     }

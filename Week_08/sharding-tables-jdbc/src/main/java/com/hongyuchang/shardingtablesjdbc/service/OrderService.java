@@ -75,21 +75,24 @@ public final class OrderService{
         return result;
     }
 
-    @Transactional(rollbackFor = SQLException.class)
-    @ShardingTransactionType(TransactionType.XA)
     public List<Long> insertDataXA() throws Exception {
         System.out.println("---------------------------- Insert Data ----------------------------");
         List<Long> result = new ArrayList<>(10000);
-        for (int i = 1; i <= 10000; i++) {
+        for (int i = 1; i <= 100; i++) {
             Order order = insertOrder(i+20000);
             result.add(order.getOrderId());
-            if(i>500) {
-                throw new SQLException("我要测试XA事物");
-            }
         }
+        insertOrderFaild(30000);
         return result;
     }
-    
+    private Order insertOrderFaild(final int i) throws SQLException {
+        Order order = new Order();
+        order.setUserId(i);
+        order.setAddressId(i);
+        order.setStatus("INSERT_TEST");
+        orderRepository.insertFaild(order);
+        return order;
+    }
     private Order insertOrder(final int i) throws SQLException {
         Order order = new Order();
         order.setUserId(i);
