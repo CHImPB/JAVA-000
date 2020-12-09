@@ -33,9 +33,10 @@ public final class JavaConfigurationExampleMain {
         DataSource dataSource = new ShardingDatabasesAndTablesConfigurationPrecise().getDataSource();
         OrderService orderService = new OrderService(dataSource);
         try {
+            //测试分库分表
             orderService.initEnvironment();
             orderService.processSuccess();
-
+            //测试XA事物
             orderService.insertDataXA();
         } catch (Exception e) {
             e.printStackTrace();
