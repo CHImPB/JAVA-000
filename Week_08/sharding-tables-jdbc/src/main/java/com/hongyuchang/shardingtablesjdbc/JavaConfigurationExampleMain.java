@@ -35,6 +35,10 @@ public final class JavaConfigurationExampleMain {
         try {
             orderService.initEnvironment();
             orderService.processSuccess();
+
+            orderService.insertDataXA();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
 //            orderService.cleanEnvironment();
         }

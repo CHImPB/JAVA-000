@@ -35,8 +35,8 @@ public final class StandardModuloShardingTableAlgorithm implements StandardShard
     
     @Override
     public String doSharding(final Collection<String> tableNames, final PreciseShardingValue<Long> shardingValue) {
+        String ends =String.valueOf((shardingValue.getValue() +(int)(Math.random()*15)) % 16);
         for (String each : tableNames) {
-            String ends =String.valueOf((shardingValue.getValue() - 1) % 16);
             if (each.endsWith(ends)) {
                 return each;
             }

@@ -20,6 +20,9 @@ package com.hongyuchang.shardingtablesjdbc.service;
 
 import com.hongyuchang.shardingtablesjdbc.entity.Order;
 import com.hongyuchang.shardingtablesjdbc.repository.OrderRepository;
+import org.apache.shardingsphere.transaction.annotation.ShardingTransactionType;
+import org.apache.shardingsphere.transaction.core.TransactionType;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -62,13 +65,27 @@ public final class OrderService{
         System.out.println("-------------- Process Failure Finish --------------");
         throw new RuntimeException("Exception occur for transaction test.");
     }
-    
     private List<Long> insertData() throws SQLException {
         System.out.println("---------------------------- Insert Data ----------------------------");
         List<Long> result = new ArrayList<>(10000);
         for (int i = 1; i <= 10000; i++) {
             Order order = insertOrder(i);
             result.add(order.getOrderId());
+        }
+        return result;
+    }
+
+    @Transactional(rollbackFor = SQLException.class)
+    @ShardingTransactionType(TransactionType.XA)
+    public List<Long> insertDataXA() throws Exception {
+        System.out.println("---------------------------- Insert Data ----------------------------");
+        List<Long> result = new ArrayList<>(10000);
+        for (int i = 1; i <= 10000; i++) {
+            Order order = insertOrder(i+20000);
+            result.add(order.getOrderId());
+            if(i>500) {
+                throw new SQLException("我要测试XA事物");
+            }
         }
         return result;
     }
